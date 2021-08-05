@@ -36,7 +36,7 @@ MVPCategs = {
 numMVPCategs = 5
 
 
-def PrepareGoogleSpeechCmd(version=2, forceDownload=False, task='20cmd'):
+def PrepareMVP():
     """
     Prepares Google Speech commands dataset version 2 for used"""
     basePath = 'content/drive/MyDrive/split-events'
@@ -105,8 +105,6 @@ def PrepareGoogleSpeechCmd(version=2, forceDownload=False, task='20cmd'):
                'test': testInfo,
                'val': valInfo,
                'testREAL': testREALInfo}
-
-    print('Done preparing Google Speech commands dataset version {}'.format(version))
 
     return gscInfo, numMVPCategs
 
