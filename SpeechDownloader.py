@@ -39,7 +39,7 @@ numMVPCategs = 5
 def PrepareMVP():
     """
     Prepares Google Speech commands dataset version 2 for used"""
-    basePath = 'content/drive/MyDrive/split_e'
+    basePath = '/content/drive/MyDrive/split_e'
 
     print('Converting test set WAVs to numpy files')
     audioUtils.WAV2Numpy(basePath + '/test/')
@@ -47,9 +47,9 @@ def PrepareMVP():
     audioUtils.WAV2Numpy(basePath + '/train/')
 
     # read split from files and all files in folders
-    testWAVs = pd.read_csv('content/drive/MyDrive/event/testing_list.txt',
+    testWAVs = pd.read_csv('/content/drive/MyDrive/event/testing_list.txt',
                            sep=" ", header=None)[0].tolist()
-    valWAVs = pd.read_csv(basePath + 'content/drive/MyDrive/event/validation_list.txt',
+    valWAVs = pd.read_csv('/content/drive/MyDrive/event/validation_list.txt',
                           sep=" ", header=None)[0].tolist()
 
     testWAVs = [os.path.join(basePath + '/train/', f + '.npy')
@@ -72,17 +72,6 @@ def PrepareMVP():
     trainWAVlabels = [_getFileCategory(f, MVPCategs) for f in trainWAVs]
     testWAVREALlabels = [_getFileCategory(f, MVPCategs)
                          for f in testWAVsREAL]
-
-    # background noise should be used for validation as well
-    backNoiseFiles = [trainWAVs[i] for i in range(len(trainWAVlabels))
-                      if trainWAVlabels[i] == MVPCategs['silence']]
-    backNoiseCats = [MVPCategs['silence']
-                     for i in range(len(backNoiseFiles))]
-    if numMVPCategs == 12:
-        valWAVs += backNoiseFiles
-        valWAVlabels += backNoiseCats
-
-    # build dictionaries
     testWAVlabelsDict = dict(zip(testWAVs, testWAVlabels))
     valWAVlabelsDict = dict(zip(valWAVs, valWAVlabels))
     trainWAVlabelsDict = dict(zip(trainWAVs, trainWAVlabels))
