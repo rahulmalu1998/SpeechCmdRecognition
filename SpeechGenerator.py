@@ -27,7 +27,7 @@ class SpeechGen(tensorflow.keras.utils.Sequence):
     Expects list_IDs and labels to be of the same length
     """
     def __init__(self, list_IDs, labels, batch_size=32,
-                 dim=16000, shuffle=True):
+                 dim=2000, shuffle=True):
         'Initialization'
         self.dim = dim
         self.batch_size = batch_size
