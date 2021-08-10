@@ -43,23 +43,25 @@ def PrepareMVP():
 
     print('Converting test set WAVs to numpy files')
     audioUtils.WAV2Numpy(basePath + '/test/')
+    print('Converting test set WAVs to numpy files')
+    audioUtils.WAV2Numpy(basePath + '/val/')
     print('Converting training set WAVs to numpy files')
     audioUtils.WAV2Numpy(basePath + '/train/')
-
     # read split from files and all files in folders
-    testWAVs = pd.read_csv('/content/drive/MyDrive/event/testing_list.txt',
+    testWAVs =pd.read_csv('/content/drive/MyDrive/event/testing_list.txt',
                            sep=" ", header=None)[0].tolist()
     valWAVs = pd.read_csv('/content/drive/MyDrive/event/validation_list.txt',
                           sep=" ", header=None)[0].tolist()
+    trainWAVs=pd.read_csv('/content/drive/MyDrive/event/train_list.txt',
+                          sep=" ", header=None)[0].tolist()
+    testWAVs = [f for f in testWAVs ]
+    valWAVs = [f for f in valWAVs]
+    trainWAVs = [f for f in trainWAVs ]
+    # allWAVs = []
 
-    testWAVs = [os.path.join(basePath + '/train/', f + '.npy')
-                for f in testWAVs if f.endswith('.wav')]
-    valWAVs = [os.path.join(basePath + '/train/', f + '.npy')
-               for f in valWAVs if f.endswith('.wav')]
-    allWAVs = []
-    for root, dirs, files in os.walk(basePath + '/train/'):
-        allWAVs += [root + '/' + f for f in files if f.endswith('.wav.npy')]
-    trainWAVs = list(set(allWAVs) - set(valWAVs) - set(testWAVs))
+    # for root, dirs, files in os.walk(basePath + '/train/'):
+    #     allWAVs += [root + '/' + f for f in files if f.endswith('.wav.npy')]
+    # trainWAVs = list(set(allWAVs) - set(valWAVs) - set(testWAVs))
 
     testWAVsREAL = []
     for root, dirs, files in os.walk(basePath + '/test/'):
