@@ -39,7 +39,7 @@ numMVPCategs = 5
 def PrepareMVP():
     """
     Prepares Google Speech commands dataset version 2 for used"""
-    basePath = '/content/drive/MyDrive/split_e'
+    basePath = '/content/drive/MyDrive/split_events'
 
     print('Converting test set WAVs to numpy files')
     audioUtils.WAV2Numpy(basePath + '/test/')
