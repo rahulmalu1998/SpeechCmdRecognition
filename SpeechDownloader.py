@@ -27,13 +27,12 @@ import audioUtils
 # "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", and "Nine"
 
 MVPCategs = {
-    'silence': 0,
-    'S1': 1,
-    'S2': 2,
-    'EC': 3,
-    'murmur':4
+    'S1': 0,
+    'S2': 1,
+    'EC': 2,
+    'murmur':3
     }
-numMVPCategs = 5
+numMVPCategs = 4
 
 
 def PrepareMVP():
