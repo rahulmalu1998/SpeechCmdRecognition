@@ -47,11 +47,11 @@ def PrepareMVP():
 #     print('Converting training set WAVs to numpy files')
 #     audioUtils.WAV2Numpy(basePath + '/train/')
     # read split from files and all files in folders
-    testWAVs =pd.read_csv('/content/drive/MyDrive/event/testing_list.txt',
+    testWAVs =pd.read_csv('/content/drive/MyDrive/events/testing_list.txt',
                            sep=" ", header=None)[0].tolist()
-    valWAVs = pd.read_csv('/content/drive/MyDrive/event/validation_list.txt',
+    valWAVs = pd.read_csv('/content/drive/MyDrive/events/validation_list.txt',
                           sep=" ", header=None)[0].tolist()
-    trainWAVs=pd.read_csv('/content/drive/MyDrive/event/train_list.txt',
+    trainWAVs=pd.read_csv('/content/drive/MyDrive/events/train_list.txt',
                           sep=" ", header=None)[0].tolist()
     testWAVs = [f for f in testWAVs ]
     valWAVs = [f for f in valWAVs]
