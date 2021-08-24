@@ -27,18 +27,19 @@ import audioUtils
 # "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", and "Nine"
 
 MVPCategs = {
-    'S1': 0,
-    'S2': 1,
-    'EC': 2,
-    'murmur':3
+    'AS': 0,
+    'MVP': 1,
+    'MS': 2,
+    'MR':3,
+    'N':4    
     }
-numMVPCategs = 4
+numMVPCategs = 5
 
 
 def PrepareMVP():
     """
     Prepares Google Speech commands dataset version 2 for used"""
-    basePath = '/content/drive/MyDrive/zero_split_events'
+    basePath = '/content/drive/MyDrive/split_Event_disease'
 
 #     print('Converting test set WAVs to numpy files')
 #     audioUtils.WAV2Numpy(basePath + '/test/')
@@ -47,11 +48,11 @@ def PrepareMVP():
 #     print('Converting training set WAVs to numpy files')
 #     audioUtils.WAV2Numpy(basePath + '/train/')
     # read split from files and all files in folders
-    testWAVs =pd.read_csv('/content/drive/MyDrive/events/testing_list.txt',
+    testWAVs =pd.read_csv('/content/drive/MyDrive/Event_disease/testing_list.txt',
                            sep=" ", header=None)[0].tolist()
-    valWAVs = pd.read_csv('/content/drive/MyDrive/events/validation_list.txt',
+    valWAVs = pd.read_csv('/content/drive/MyDrive/Event_disease/validation_list.txt',
                           sep=" ", header=None)[0].tolist()
-    trainWAVs=pd.read_csv('/content/drive/MyDrive/events/train_list.txt',
+    trainWAVs=pd.read_csv('/content/drive/MyDrive/Event_disease/train_list.txt',
                           sep=" ", header=None)[0].tolist()
     testWAVs = [f for f in testWAVs ]
     valWAVs = [f for f in valWAVs]
