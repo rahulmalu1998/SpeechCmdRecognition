@@ -40,13 +40,13 @@ def PrepareMVP():
     Prepares Google Speech commands dataset version 2 for used"""
     basePath = '/content/drive/MyDrive/systole_event_split'
 
-    print('Converting test set WAVs to numpy files')
-    audioUtils.WAV2Numpy(basePath + '/test/')
-    print('Converting test set WAVs to numpy files')
-    audioUtils.WAV2Numpy(basePath + '/val/')
-    print('Converting training set WAVs to numpy files')
-    audioUtils.WAV2Numpy(basePath + '/train/')
-    # read split from files and all files in folders
+#     print('Converting test set WAVs to numpy files')
+#     audioUtils.WAV2Numpy(basePath + '/test/')
+#     print('Converting test set WAVs to numpy files')
+#     audioUtils.WAV2Numpy(basePath + '/val/')
+#     print('Converting training set WAVs to numpy files')
+#     audioUtils.WAV2Numpy(basePath + '/train/')
+#     # read split from files and all files in folders
     testWAVs =pd.read_csv('/content/drive/MyDrive/systole_event/testing_list.txt',
                            sep=" ", header=None)[0].tolist()
     valWAVs = pd.read_csv('/content/drive/MyDrive/systole_event/validation_list.txt',
